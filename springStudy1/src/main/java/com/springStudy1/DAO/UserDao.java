@@ -77,6 +77,16 @@ public class UserDao {
 		return user;
 	}
 
+	public void update(User user) {
+		
+		String sql = "update user set user_pw=?, user_email=?, user_addr=?, user_job=?, user_like=? where user_id=?";
+		
+		jdbc.update(sql, user.getUserPw(), user.getUserEmail(), user.getUserAddr(), user.getUserJob(), user.getUserLike(), user.getUserId());
+		
+		
+		
+	}
+
 }
 
 
