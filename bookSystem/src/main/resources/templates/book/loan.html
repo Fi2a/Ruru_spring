@@ -8,6 +8,11 @@
 <th:block layout:fragment="css"></th:block>
 <th:block layout:fragment="script"></th:block>
 
+<th:block th:if="${fail}">
+	<script>alert("대여중인 도서입니다.");</script>
+</th:block>
+
+
 </head>
 
 	<div layout:fragment="main"  id="main">
@@ -27,11 +32,14 @@
 				<td th:text=${row.book_title}></td>
 				<td th:text=${row.book_author}></td>
 				<td style="width:120px; text-align:center;">
-					<a th:href=" '/loanSave?id='+ ${row.id} + '&bookId=' + ${row.book_id}">대여</a>
+				
+					<a th:href=" '/loanSave?id='+ ${row.id} + '&bookId=' + ${row.book_id}">대여</a>	
 				</td>
 			</tr>
 			
 		</table>
 	
+	
+		
 	</div>
 </html>

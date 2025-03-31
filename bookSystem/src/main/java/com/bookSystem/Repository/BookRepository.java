@@ -31,6 +31,9 @@ public interface BookRepository {
 
 	// 대여했으면 장바구니에서 제거
 	public void deleteBasket(int id);
+	
+	// 대여목록 대출여부 확인
+	public List<String> loanCheck(int bookId);
 
 	// 대여 목록에 추가
 	public void loanInsert(Map<String, Integer> info);

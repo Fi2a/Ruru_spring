@@ -121,12 +121,23 @@ public class MainController {
 		return "book/loan";
 	}
 	
+	
 	// 도서목록 중 대출 클릭하면 book_use 에 저장
 	@GetMapping("/loanSave")
 	public String loanSave(@RequestParam("id") int id, 
-			@RequestParam("bookId") int bookId, HttpSession session) {
+			@RequestParam("bookId") int bookId, HttpSession session, Model model) {
 		String email = (String)session.getAttribute("user");
-		bookService.loanSave(id,bookId, email);
+		
+		if(bookService.loanCheck(bookId)) {
+			bookService.loanSave(id,bookId, email);
+		}else { // 이미 대출한 책이면 경고창 후 대출페이지 재요청
+						
+			List<BookBasketDto> basketList= bookService.myBasketList(email); 
+			
+			model.addAttribute("basketList", basketList);
+			model.addAttribute("fail", true);
+			return "book/loan";
+		}
 		
 		return "redirect:/loans";
 	}

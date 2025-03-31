@@ -86,6 +86,26 @@ public class BookService {
 		return bookBasketDtos;
 	}
 	
+	// 도서목록 중 대출 여부 확인
+	
+	public boolean loanCheck(int booKId) {
+		
+		List<String> status = bookRepository.loanCheck(booKId);
+		
+		boolean check = true; // true 면 대출 가능
+		
+		for( String statu : status ) {
+			if( statu.equals("대출") ) {
+				check = false;
+				break;
+			}
+		}
+			
+		return check;
+					
+	}
+	
+	
 	// 도서목록 중 대출 클릭하면 book_use 에 저장
 	public void loanSave(int id, int bookId, String email) {
 		
@@ -122,8 +142,6 @@ public class BookService {
 	
 	// 반납했으면 book_use 변경하기
 	public void returnSave(int id) {
-		
-		
 		
 		bookRepository.updateUses(id);
 		

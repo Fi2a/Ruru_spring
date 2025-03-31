@@ -52,12 +52,21 @@
 	</delete>
 	
 	
+	
+	
 	<insert id="loanInsert" parameterType="com.bookSystem.Entity.BookUse">
 		
 		insert into book_use (member_id, book_id, status, loan_date )
-		values( #{mid}, #{bid}, '대출', #{now()} ) 
+		values( #{mid}, #{bid}, '대출', now() ) 
 		
 	</insert>
+	
+	<select id="loanCheck" parameterType="int" resultType="string">
+		
+		select status from book_use where book_id = #{bookId}
+		
+	</select>
+	
 	
 	<select id="loanList" parameterType="int" resultType="com.bookSystem.Entity.BookUse">
 	
@@ -65,9 +74,9 @@
 	
 	</select>
 	
-	<update id="returnUses" parameterType="int">
+	<update id="updateUses" parameterType="int">
 	
-		update book_use set status = '반납' where id = #{id}
+		update book_use set status = '반납', return_date = now() where id = #{id} 
 	
 	</update>
 
