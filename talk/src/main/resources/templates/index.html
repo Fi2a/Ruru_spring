@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layout/default}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" href="/css/talkIndex.css">
+	</th:block>
+	<th:block layout:fragment="script"></th:block>
 
-    <link rel="stylesheet" href="./css/default.css">
-    <link rel="stylesheet" href="./css/talkIndex.css" 
 </head>
-<body>
-    
-    <div id="wrap">
-        <div id="main">
-            <div id="slideWrap">
+
+	<div layout:fragment="main" id="main">
+		<div id="slideWrap">
                 <ul id="slideBox">
-                    <li class="slide-image"><img src="./image/slide1.jpg" alt=""></li>
-                    <li class="slide-image"><img src="./image/slide2.jpg" alt=""></li>
-                    <li class="slide-image"><img src="./image/slide3.jpg" alt=""></li>
-                    <li class="slide-image"><img src="./image/slide4.jpg" alt=""></li>
-                    <li class="slide-image"><img src="./image/slide5.jpg" alt=""></li>
+                    <li class="slide-image"><img src="/image/slide1.jpg" alt=""></li>
+                    <li class="slide-image"><img src="/image/slide2.jpg" alt=""></li>
+                    <li class="slide-image"><img src="/image/slide3.jpg" alt=""></li>
+                    <li class="slide-image"><img src="/image/slide4.jpg" alt=""></li>
+                    <li class="slide-image"><img src="/image/slide5.jpg" alt=""></li>
                 </ul>
             </div>
             <div id="boardWrap">
@@ -27,14 +26,14 @@
                         <h3>최근글</h3>
                         <ul>
                             <li class="board-field"><span class="title">제목</span><span class="writer">작성자</span></li>
+                            
                             <li>
-                                <span class="title"><a href="">123</a></span>
-                                <span class="writer">weeee</span>
+                                <span class="title">
+                                    <a href=""></a>
+                                </span>
+                                <span class="writer"></span>
                             </li>
-                            <li>323</li>
-                            <li>weq</li>
-                            <li>sas</li>
-                            <li>fdf</li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -42,30 +41,18 @@
                     <div class="popular-board">
                         <h3>인기글</h3>
                         <ul>
-                            <li>re</li>
-                            <li>4545</li>
-                            <li>trtrt</li>
-                            <li>gfgf</li>
-                            <li>gfgfg5</li>
+                            <li class="board-field"><span class="title">제목</span><span class="writer">작성자</span></li>
+                            
+                            <li>
+                                <span class="title">
+                                    <a href=""></a>
+                                </span>
+                                <span class="writer"></span>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="footer">
+	</div>
 
-        </div>
-        <div id="menu">
-            <ul class="menu-list">
-                <li class="menu"><a href="">모두의 공간</a></li>
-                <li class="menu"><a href="">모두의 정보</a></li>
-            </ul>
-        </div>
-    </div>
-    <div id="loginModal">
-        <div id="modalBg"></div>
-        <div id="loginBox"></div>
-    </div>
-
-</body>
 </html>

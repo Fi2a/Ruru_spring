@@ -11,7 +11,7 @@ import com.talk.service.BoardService;
 
 @Controller
 public class MainController {
-	
+
 	@Autowired
 	private BoardService boardService;
 	
@@ -28,6 +28,4 @@ public class MainController {
 		
 		return "index";
 	}
-	
-	
 }
