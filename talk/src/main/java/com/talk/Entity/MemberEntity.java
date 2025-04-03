@@ -17,9 +17,13 @@ public class MemberEntity {
 	private String tel;
 	
 	public static MemberEntity from(MemberSignUpDto memberSignUpDto) {
-		MemberEntity memberEntity = new MemberEntity();
+		MemberEntity memberEntity=new MemberEntity();
 		
-		
+		memberEntity.setEmail(memberSignUpDto.getEmail());
+		memberEntity.setMemberId(memberSignUpDto.getMemberId());
+		memberEntity.setName(memberSignUpDto.getName());
+		memberEntity.setPassword(memberSignUpDto.getPassword());
+		memberEntity.setTel(memberSignUpDto.getTel());
 		
 		return memberEntity;
 	}
