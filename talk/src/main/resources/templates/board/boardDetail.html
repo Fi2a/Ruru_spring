@@ -38,7 +38,7 @@
                 <div id="commentWriteBox">
                     <form th:object="${commentDto}" method="get" action="">
                         <div id="commentWrite" class="flex flex-align-center">
-                            <input type="hidden" th:name="*{boardId}" th:value="${boardDetailDto.id}">
+                            <input type="hidden" th:field="*{boardId}">
                             <div class="flex flex-align-center cInput">
                                 <label class="w10p">내용</label>
                                 <input type="text" th:field="*{content}" class="inputBox commentInput">

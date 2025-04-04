@@ -17,7 +17,7 @@ public class BoardDetailDto {
 	private String content;
 	private String fileName;
 	private int hit;
-	private LocalDate writerDate;
+	private LocalDate writeDate;
 	private List<CommentViewDto> commentList;
 	
 	
@@ -32,7 +32,7 @@ public class BoardDetailDto {
 		boardDetailDto.setId(boardEntity.getId());
 		boardDetailDto.setMemberId(boardEntity.getMemberId());
 		boardDetailDto.setTitle(boardEntity.getTitle());
-		boardDetailDto.setWriterDate(boardEntity.getWriteDate());
+		boardDetailDto.setWriteDate(boardEntity.getWriteDate());
 		
 		return boardDetailDto;
 	}
