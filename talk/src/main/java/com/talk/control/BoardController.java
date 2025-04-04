@@ -17,6 +17,7 @@ import com.talk.Dto.BoardListDto;
 import com.talk.Dto.CommentDto;
 import com.talk.Dto.CommentViewDto;
 import com.talk.service.BoardService;
+import com.talk.service.CommentService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -26,6 +27,9 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
+	
+	@Autowired
+	private CommentService commentService;
 	
 	// 목록
 	@GetMapping("/index")
@@ -73,15 +77,20 @@ public class BoardController {
 	public String  boardDelete(@RequestParam("id") int id ,	HttpSession session) {
 		return null;
 	}
-	//수정 페이지
-	@GetMapping("/updatePage")
+	//수정
+	@GetMapping("/update")
 	public String  boardUpdate(BoardDto boardDto,HttpSession session) {
 		return null;
 	}
-	//수정
-	@GetMapping("/update")
+	//수정 페이지
+	@GetMapping("/updatePage")
 	public String  boardUpdate(@RequestParam("id")	int id ,Model model) {
-		return null;
+		
+		BoardDetailDto boardDto = boardService.boardDetail(id);
+		
+		model.addAttribute("boardDto", boardDto);
+		
+		return "board/boardWrite";
 	}
 	//상세
 	@GetMapping("/detail")
@@ -102,11 +111,18 @@ public class BoardController {
 	//댓글 저장
 	@GetMapping("/commentSave")
 	public String  commentSave(CommentDto commentDto ,HttpSession session) {
+		
+		String memberId = (String)session.getAttribute("user");
+		commentDto.setMemberId(memberId);
+		commentService.commentSave(commentDto);
+		
 		return null;
 	}
 	//댓글 삭제
 	@GetMapping("/commentDelete")
 	public String  commentDel(@RequestParam("id") int id , HttpSession session) {
+		
+		
 		return null;
 	}
 }

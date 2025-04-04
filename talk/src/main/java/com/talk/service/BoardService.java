@@ -86,6 +86,8 @@ public class BoardService {
 	//게시글 수정
 	public void boardUpdate(BoardDto boardDto) {
 		
+		
+		
 	}
 	//게시글 상세보기
 	public BoardDetailDto boardDetail(int id) {
